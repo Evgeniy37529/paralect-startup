@@ -1,0 +1,30 @@
+.repositoriesItem {
+    padding: 24px 32px;
+   background: #fff;
+ }
+ .repositoriesItem:hover {
+   background: rgba(128, 112, 112, 0.412);
+ }
+ .repositoriesItem:not(:last-child) {
+   margin-bottom: 24px;
+ }
+ .repositoriesName {
+    margin-bottom: 16px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    color: #0064EB;
+  }
+  .repositoriesDescription {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+  }
+  
+@media screen and (max-width: 1000px) {
+    .repositoriesName {
+        font-size: 18px;
+      }
+}

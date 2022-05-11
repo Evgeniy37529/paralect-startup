@@ -1,0 +1,34 @@
+.repositoriesEmpty {
+    max-width: 877px;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+
+  .notFound {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 197px;
+    font-size: 22px;
+  }
+  .notFound p {
+    margin-top: 24px;
+    color: #808080;
+  }
+  .repositoriesEmptyImgContainer {
+    padding: 24px 17px;
+  }
+
+  @media screen and (max-width: 1000px) {
+    .notFound {
+        margin-top: 0;
+      }
+      .repositoriesEmptyImgContainer {
+        margin-top: 40px;
+      }
+      .repositoriesEmpty {
+        height: auto;
+      }
+  }

@@ -1,0 +1,60 @@
+.user {
+    width: 295px;
+    margin-right: 85px;
+    padding-top: 40px;
+    
+  }
+  .userImage {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+  
+  }
+  .userImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  .userName {
+    margin-top: 28px;
+    font-size: 26px;
+  }
+  .followers {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+  }
+  .followers p {
+    margin-left: 8px;
+  }
+  .followers div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .followersImg {
+    margin-right: 10px;
+  }
+  .nickName { 
+    margin-top: 12px;
+    font-size: 18px;
+    color: #0064EB;
+  }
+
+@media screen and (max-width: 1000px) { 
+    .user {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-right: 0;
+      }
+      .userImage {
+       width: 200px;
+       height: 200px;
+     }
+      .followers {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+}

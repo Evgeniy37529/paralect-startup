@@ -1,68 +1,21 @@
-import React from 'react';
+import { useContext } from 'react';
+import { GlobalContext } from '../Context/GlobalContext';
+import { Pagination } from '../Components/Paginate/Paginate';
+import { RepositoryItem } from '../Components/RepositoryItem/RepositoryItem';
+import styles from './Repositories.module.css';
 
 export const Repositories = () => {
+  const { repositories, perPage, user } = useContext(GlobalContext);
+  const repositoryComponents = repositories?.map(({ id, name, description }) => (
+    <RepositoryItem key={id} name={name} description={description} />
+  ));
   return (
-    <div className="repositories">
-      <h2 className="page-title">
-        Repositories <span>(249)</span>
+    <div className={styles.repositories}>
+      <h2 className={styles.pageTitle}>
+        Repositories <span>({user.public_repos})</span>
       </h2>
-      <ul className="repositories-list">
-        <li className="repositories-item">
-          <h4 className="repositories-name">react-hot-loader</h4>
-          <p className="repositories-description">
-            Tweak React components in real time. (Deprecated: use Fast Refresh instead.
-          </p>
-        </li>
-        <li className="repositories-item">
-          <h4 className="repositories-name">react-hot-loader</h4>
-          <p className="repositories-description">
-            Tweak React components in real time. (Deprecated: use Fast Refresh instead.
-          </p>
-        </li>
-        <li className="repositories-item">
-          <h4 className="repositories-name">react-hot-loader</h4>
-          <p className="repositories-description">
-            Tweak React components in real time. (Deprecated: use Fast Refresh instead.
-          </p>
-        </li>
-        <li className="repositories-item">
-          <h4 className="repositories-name">react-hot-loader</h4>
-          <p className="repositories-description">
-            Tweak React components in real time. (Deprecated: use Fast Refresh instead.
-          </p>
-        </li>
-        <li className="repositories-item">
-          <h4 className="repositories-name">react-hot-loader</h4>
-          <p className="repositories-description">
-            Tweak React components in real time. (Deprecated: use Fast Refresh instead.
-          </p>
-        </li>
-        <li className="repositories-item">
-          <h4 className="repositories-name">react-hot-loader</h4>
-          <p className="repositories-description">
-            Tweak React components in real time. (Deprecated: use Fast Refresh instead.
-          </p>
-        </li>
-        <li className="repositories-item">
-          <h4 className="repositories-name">react-hot-loader</h4>
-          <p className="repositories-description">
-            Tweak React components in real time. (Deprecated: use Fast Refresh instead.
-          </p>
-        </li>
-        <li className="repositories-item">
-          <h4 className="repositories-name">react-hot-loader</h4>
-          <p className="repositories-description">
-            Tweak React components in real time. (Deprecated: use Fast Refresh instead.
-          </p>
-        </li>
-
-        <li className="repositories-item">
-          <h4 className="repositories-name">react-hot-loader</h4>
-          <p className="repositories-description">
-            Tweak React components in real time. (Deprecated: use Fast Refresh instead.
-          </p>
-        </li>
-      </ul>
+      <ul className={styles.repositoriesList}>{repositoryComponents}</ul>
+      <Pagination user={user} perPage={perPage} />
     </div>
   );
 };

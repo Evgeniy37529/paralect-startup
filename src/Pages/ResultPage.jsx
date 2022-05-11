@@ -1,20 +1,21 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { UserAbout } from '../Components/User/UserAbout';
 import { Repositories } from '../Repositories/Repositories';
-import { Pagination } from '../Components/Paginate/Paginate';
 import { GlobalContext } from '../Context/GlobalContext';
+import { RepositoriesNotFound } from '../Repositories/RepositiriesNotFound';
+import { usePreloader } from '../servises/hooks';
+import styles from './ResultPage.module.css';
 
 export const ResultPage = () => {
-  const { user, repositories } = useContext(GlobalContext);
-  console.log(user);
-  console.log(repositories);
+  const { repositories } = useContext(GlobalContext);
+  const preloader = usePreloader();
   return (
-    <div className="page">
-      <div className="container page-result">
+    <div className={(styles.page, styles.resultContent)}>
+      <div className={`container ${styles.pageResult}`}>
+        {preloader}
         <UserAbout />
-        <Repositories />
+        {repositories.length ? <Repositories /> : <RepositoriesNotFound />}
       </div>
-      <Pagination />
     </div>
   );
 };

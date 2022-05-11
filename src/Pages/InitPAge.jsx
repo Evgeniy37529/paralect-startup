@@ -1,10 +1,12 @@
-import React from 'react';
-
+import styles from './InitPage.module.css';
+import { usePreloader } from '../servises/hooks';
 export const InitPage = () => {
+  const preloader = usePreloader();
   return (
-    <div className="page-init">
-      <div className="page-init_content">
-        <div className="page-init_content_image">
+    <div className={styles.pageInit}>
+      {preloader}
+      <div className={styles.pageInitContent}>
+        <div className={styles.pageInitContentImage}>
           <img
             width="64"
             height="64"

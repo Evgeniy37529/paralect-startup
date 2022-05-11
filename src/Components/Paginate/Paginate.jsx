@@ -1,31 +1,42 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import ReactPaginate from 'react-paginate';
+import { GlobalContext } from '../../Context/GlobalContext';
+import styles from './Paginate.module.css';
 
 export const Pagination = () => {
+  const { perPage, user, getRepositories, searchUser, currentPage, setCurrentPage } =
+    useContext(GlobalContext);
+  const totalPages = Math.ceil(user.public_repos / perPage);
+
+  const handlePageClick = (numberPage) => {
+    setCurrentPage(numberPage);
+    getRepositories(searchUser, numberPage + 1);
+  };
+
   return (
-    <div className="container pagination-container" style={{ marginLeft: 'auto' }}>
+    <div className={`container ${styles.paginationContainer}`} style={{ marginLeft: 'auto' }}>
       <p>
-        <span>5-8</span> of <span>249</span> items{' '}
+        <span>{perPage}</span> of <span>{user.public_repos}</span> items{' '}
       </p>
       <ReactPaginate
         previousLabel={'<'}
-        pageCount={10}
+        pageCount={totalPages}
         nextLabel={'>'}
         breakLabel={'...'}
         pageRangeDisplayed={3}
         marginPagesDisplayed={1}
-        containerClassName="pagination justify-content-center"
-        pageClassName="page-item"
-        pageLinkClassName="page-link"
-        nextClassName="page-item"
-        nextLinkClassName="page-link"
-        previousClassName="page-item"
-        previousLinkClassName="page-link"
-        breakClassName="page-item"
-        breakLinkClassName="page-link"
-        activeClassName="active-page"
-        // onPageChange={(data) => handlePageClick(data.selected)}
-        // forcePage={page}
+        containerClassName={`${styles.pagination} justify-content-center`}
+        pageClassName={styles.pageItem}
+        pageLinkClassName={styles.pageLink}
+        nextClassName={styles.pageItem}
+        nextLinkClassName={styles.pageLink}
+        previousClassName={styles.pageItem}
+        previousLinkClassName={styles.pageLink}
+        breakClassName={styles.pageItem}
+        breakLinkClassName={styles.pageLink}
+        activeClassName={styles.activePage}
+        onPageChange={(data) => handlePageClick(Number(data.selected))}
+        forcePage={currentPage}
       />
     </div>
   );

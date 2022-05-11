@@ -1,0 +1,39 @@
+.paginationContainer {
+    margin-top: 20px;
+    margin-bottom: 28px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    color: #808080;
+  }
+.pagination {
+    display: flex;
+    justify-content: end;
+    margin-left: 16px;
+  }
+  .pageItem {
+    margin-right: 10px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  .pageItem:hover {
+    background: #0066eb5d;
+  }
+  .pageLink {
+    display: block;
+    padding: 2px 6px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    
+  }
+  .activePage {
+    background: #0064EB;
+    color: #fff;
+  }
+  @media screen and (max-width: 500px) { 
+    .paginationContainer p {
+      display: none;
+    }
+  }
