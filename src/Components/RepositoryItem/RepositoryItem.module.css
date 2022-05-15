@@ -1,6 +1,8 @@
 .repositoriesItem {
-    padding: 24px 32px;
-   background: #fff;
+  display: block;
+  padding: 24px 32px;
+  background: #fff;
+  text-decoration: none;
  }
  .repositoriesItem:hover {
    background: rgba(128, 112, 112, 0.412);
@@ -21,6 +23,7 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 19px;
+    color: black;
   }
   
 @media screen and (max-width: 1000px) {

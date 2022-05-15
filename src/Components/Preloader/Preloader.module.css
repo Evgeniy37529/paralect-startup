@@ -9,6 +9,7 @@
     justify-content: center;
     background-color: #f6f7f991;
 }
+
 .preloader {
     display: block;
     width: 150px;
@@ -19,6 +20,7 @@
     border-top-color: #337AB7;
     animation: preloader-spin 2s linear infinite;
 }
+
 .preloader:before {
     content: "";
     position: absolute;
@@ -31,6 +33,7 @@
     border-top-color: #BFE2FF;
     animation: preloader-spin 3s linear infinite;
 }
+
 .preloader:after {
     content: "";
     position: absolute;
@@ -43,6 +46,7 @@
     border-top-color: #337AB7;
     animation: preloader-spin 1.5s linear infinite;
 }
+
 @keyframes preloader-spin {
     0%   {
         transform: rotate(0deg);

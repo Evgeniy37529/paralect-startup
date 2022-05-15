@@ -1,12 +1,12 @@
-import { useContext } from 'react';
+import { useContext, useMemo } from 'react';
 import ReactPaginate from 'react-paginate';
 import { GlobalContext } from '../../Context/GlobalContext';
 import styles from './Paginate.module.css';
 
-export const Pagination = () => {
+export const Paginate = () => {
   const { perPage, user, getRepositories, searchUser, currentPage, setCurrentPage } =
     useContext(GlobalContext);
-  const totalPages = Math.ceil(user.public_repos / perPage);
+  const totalPages = useMemo(() => Math.ceil(user.public_repos / perPage), [user]);
 
   const handlePageClick = (numberPage) => {
     setCurrentPage(numberPage);
@@ -14,9 +14,9 @@ export const Pagination = () => {
   };
 
   return (
-    <div className={`container ${styles.paginationContainer}`} style={{ marginLeft: 'auto' }}>
+    <div className={`container ${styles.paginationContainer}`}>
       <p>
-        <span>{perPage}</span> of <span>{user.public_repos}</span> items{' '}
+        <span>{perPage}</span> of <span>{user.public_repos}</span> items
       </p>
       <ReactPaginate
         previousLabel={'<'}

@@ -52,6 +52,7 @@ export const GlobalState = ({ children }) => {
         `${searchValue}/repos?per_page=${state.perPage}&page=${currentPage}`
       );
       const payload = resp.data;
+      console.log(payload);
       dispatch({ type: GET_REPOSITORIES, payload });
     } catch (error) {
     } finally {

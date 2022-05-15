@@ -1,7 +1,9 @@
 import styles from './InitPage.module.css';
 import { usePreloader } from '../servises/hooks';
+
 export const InitPage = () => {
   const preloader = usePreloader();
+
   return (
     <div className={styles.pageInit}>
       {preloader}
